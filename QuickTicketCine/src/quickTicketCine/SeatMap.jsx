@@ -17,7 +17,7 @@ export default function SeatMap() {
         <div className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white text-center py-4 mx-4 rounded-t-3xl rounded-b-lg shadow-2xl transform perspective-1000 hover:scale-105 transition-transform duration-300">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-t-3xl rounded-b-lg"></div>
           <div className="relative z-10">
-            <div className="text-lg font-bold tracking-widest mb-1">🎬 MÀN HÌNH 🎬</div>
+            <div className="text-2xl font-extrabold tracking-widest mb-1 text-yellow-400 drop-shadow-md">MÀN HÌNH</div>
             <div className="text-xs opacity-70">CURVED CINEMA SCREEN</div>
           </div>
         </div>
