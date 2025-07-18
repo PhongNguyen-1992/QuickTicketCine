@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import BookingStats from './BookingStats';
-import { formatCurrency } from './formatCurrency';
+import { formatCurrency } from '../Price/formatCurrency';
 
 
 export default function BookingTable() {

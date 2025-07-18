@@ -1,8 +1,8 @@
-import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './store';
-import TicketBookingApp from './quickTicketCine';
+import React from "react";
+import { Provider } from "react-redux";
 
+import TicketBookingApp from "./quickTicketCine/_index";
+import { store } from "./store";
 
 export default function App() {
   return (

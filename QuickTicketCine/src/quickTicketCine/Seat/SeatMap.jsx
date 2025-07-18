@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SeatRow from './SeatRow';
-import PriceInfo from './PriceInfo';
+import PriceInfo from '../Price/PriceInfo';
 
 export default function SeatMap() {
   const { seatData } = useSelector(state => state.booking);
@@ -52,9 +52,9 @@ export default function SeatMap() {
             <span>Không khả dụng</span>
           </div>
         </div>
-        <div className="border-t pt-2">
+        {/* <div className="border-t pt-2">
           <PriceInfo showTotal={false} showDetails={false} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

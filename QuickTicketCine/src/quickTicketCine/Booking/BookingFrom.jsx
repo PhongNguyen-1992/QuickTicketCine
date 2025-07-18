@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCustomerName, addBooking, clearSelection } from '../store/bookingSlice';
-import PriceInfo from './PriceInfo';
-import { formatCurrency } from './formatCurrency';
+import { setCustomerName, addBooking, clearSelection } from '../../store/bookingSlice';
+import PriceInfo from '../Price/PriceInfo';
+import { formatCurrency } from '../Price/formatCurrency';
 
 export default function BookingForm() {
   const dispatch = useDispatch();

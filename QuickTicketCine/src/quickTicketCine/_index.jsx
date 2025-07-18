@@ -1,7 +1,7 @@
 import React from 'react';
-import BookingForm from './BookingFrom';
-import SeatMap from './SeatMap';
-import BookingTable from './BookingTable';
+import BookingForm from './Booking/BookingFrom';
+import SeatMap from './Seat/SeatMap';
+import BookingTable from './Booking/BookingTable';
 
 function TicketBookingApp() {
   return (

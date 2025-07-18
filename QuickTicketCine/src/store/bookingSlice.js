@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {seatData} from '../quickTicketCine/seatData';
-
+import {seatData} from '../quickTicketCine/Seat/seatData';
 
 const bookingSlice = createSlice({
   name: 'booking',

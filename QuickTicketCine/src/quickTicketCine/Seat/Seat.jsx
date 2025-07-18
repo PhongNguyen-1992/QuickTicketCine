@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleSeat } from '../store/bookingSlice';
-import { formatCurrency } from './formatCurrency';
+import { toggleSeat } from '../../store/bookingSlice';
+import { formatCurrency } from '../Price/formatCurrency';
 
 
 export default function Seat({ seatInfo }) {
