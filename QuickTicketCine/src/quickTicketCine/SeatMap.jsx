@@ -12,9 +12,21 @@ export default function SeatMap() {
       </h2>
       
       {/* Màn hình */}
-      <div className="bg-gray-800 text-white text-center py-2 mb-6 rounded">
-        MÀN HÌNH
-      </div>
+       <div className="relative mb-10">
+  <div className="bg-gradient-to-b from-gray-950 via-gray-800 to-gray-950 text-white text-center py-6 mx-6 rounded-t-[2rem] rounded-b-xl shadow-[0_0_40px_rgba(0,0,0,0.6)] transform hover:scale-[1.03] transition-transform duration-500 perspective-[1000px]">
+    {/* Hiệu ứng ánh sáng động overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-t-[2rem] rounded-b-xl animate-pulse"></div>
+
+    {/* Nội dung chính */}
+    <div className="relative z-10">
+      <div className="text-2xl font-extrabold tracking-widest mb-1 text-yellow-400 drop-shadow-md"> MÀN HÌNH </div>
+     
+    </div>
+  </div>
+
+  {/* Hiệu ứng ánh sáng đáy */}
+  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-40 h-1.5 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent rounded-full blur-md"></div>
+</div>
 
       {/* Dãy ghế */}
       <div className="space-y-2 mb-4">
