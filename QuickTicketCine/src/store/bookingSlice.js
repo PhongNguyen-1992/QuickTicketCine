@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import {seatData} from '../quickTicketCine/seatData';
+
 
 const bookingSlice = createSlice({
   name: 'booking',
@@ -6,7 +8,10 @@ const bookingSlice = createSlice({
     customerName: '',
     selectedSeats: [],
     bookings: [],
-    bookedSeats: []
+    seatData: seatData,
+    bookedSeats: seatData.flatMap(hang => 
+      hang.danhSachGhe.filter(ghe => ghe.daDat).map(ghe => ghe.soGhe)
+    )
   },
   reducers: {
     setCustomerName: (state, action) => {
@@ -14,7 +19,14 @@ const bookingSlice = createSlice({
     },
     toggleSeat: (state, action) => {
       const seatId = action.payload;
-      if (state.bookedSeats.includes(seatId)) return;
+      
+      // Tìm ghế trong seatData
+      const seatInfo = state.seatData
+        .flatMap(hang => hang.danhSachGhe)
+        .find(ghe => ghe.soGhe === seatId);
+      
+      // Không cho phép chọn ghế đã đặt hoặc ghế có giá 0
+      if (!seatInfo || seatInfo.daDat || seatInfo.gia === 0) return;
       
       if (state.selectedSeats.includes(seatId)) {
         state.selectedSeats = state.selectedSeats.filter(seat => seat !== seatId);
@@ -24,15 +36,36 @@ const bookingSlice = createSlice({
     },
     addBooking: (state, action) => {
       const { name, seats } = action.payload;
+      
+      // Tính tổng tiền dựa trên giá từng ghế
+      const totalAmount = seats.reduce((sum, seatId) => {
+        const seatInfo = state.seatData
+          .flatMap(hang => hang.danhSachGhe)
+          .find(ghe => ghe.soGhe === seatId);
+        return sum + (seatInfo ? seatInfo.gia : 0);
+      }, 0);
+
       const newBooking = {
         id: Date.now(),
         name,
         seats: [...seats],
+        totalAmount,
         bookingTime: new Date().toLocaleString('vi-VN')
       };
       
       state.bookings.push(newBooking);
       state.bookedSeats.push(...seats);
+      
+      // Cập nhật trạng thái daDat trong seatData
+      seats.forEach(seatId => {
+        const seatInfo = state.seatData
+          .flatMap(hang => hang.danhSachGhe)
+          .find(ghe => ghe.soGhe === seatId);
+        if (seatInfo) {
+          seatInfo.daDat = true;
+        }
+      });
+      
       state.selectedSeats = [];
       state.customerName = '';
     },

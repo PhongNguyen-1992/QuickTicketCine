@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import BookingStats from './BookingStats';
+import { formatCurrency } from './formatCurrency';
+
 
 export default function BookingTable() {
   const { bookings } = useSelector(state => state.booking);
@@ -22,6 +24,7 @@ export default function BookingTable() {
                 <th className="border border-gray-300 px-4 py-2 text-left">Tên khách hàng</th>
                 <th className="border border-gray-300 px-4 py-2 text-left">Số ghế</th>
                 <th className="border border-gray-300 px-4 py-2 text-left">Ghế đã đặt</th>
+                <th className="border border-gray-300 px-4 py-2 text-left">Tổng tiền</th>
                 <th className="border border-gray-300 px-4 py-2 text-left">Thời gian đặt</th>
               </tr>
             </thead>
@@ -43,6 +46,11 @@ export default function BookingTable() {
                         </span>
                       ))}
                     </div>
+                  </td>
+                  <td className="border border-gray-300 px-4 py-2 text-center">
+                    <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-bold">
+                      {formatCurrency(booking.totalAmount)}
+                    </span>
                   </td>
                   <td className="border border-gray-300 px-4 py-2 text-sm text-gray-600">
                     {booking.bookingTime}
